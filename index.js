@@ -3,7 +3,7 @@ const dotenv = require("dotenv").config();
 const cors = require("cors");
 
 const errorHandlerMiddleware = require("./Middleware/error-handler");
-/* const notFound = require("./middleware/not-found"); */
+const notFound = require("./Middleware/not-found");
 
 const connectDB = require("./initDB");
 
@@ -23,7 +23,7 @@ app.use("/", CsvRequestRoute);
 
 // Error handler
 
-/* app.use(notFound); */
+app.use(notFound);
 app.use(errorHandlerMiddleware);
 
 const PORT = process.env.PORT || 4000;
