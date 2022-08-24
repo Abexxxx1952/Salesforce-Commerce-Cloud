@@ -5,7 +5,7 @@ const User = require("../Models/User.model");
 module.exports = {
   getUser: (req, res) => {
     if (req.params.userAge > 18) {
-      res.send(`Hello ${req.params.userName} ${req.params.userSurname}`);
+      return res.send(`Hello ${req.params.userName} ${req.params.userSurname}`);
     }
     res.status(401).send("Too young");
   },
