@@ -1,1 +1,1 @@
-    web: node ./ara/index.js
+    web: node ..index.js
