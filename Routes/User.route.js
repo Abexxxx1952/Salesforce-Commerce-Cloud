@@ -3,11 +3,14 @@ const router = express.Router();
 
 const UserController = require("../Controllers/User.controller");
 
-router.get("/api/user/:userName/:userSurname/:userAge", UserController.getUser);
+router.get(
+  "/api/v1/user/:userName/:userSurname/:userAge",
+  UserController.getUser
+);
 router.post(
-  "/api/user/:email/:userName/:userSurname/:userAge",
+  "/api/v1/user/:email/:userName/:userSurname/:userAge",
   UserController.setUser
 );
-router.get("/api/users/", UserController.getUsersSurnameByEmail);
+router.get("/api/v1/users/", UserController.getUsersSurnameByEmail);
 
 module.exports = router;
