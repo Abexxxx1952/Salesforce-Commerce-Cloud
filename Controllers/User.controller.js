@@ -4,6 +4,7 @@ const User = require("../Models/User.model");
 
 module.exports = {
   getUser: (req, res) => {
+    console.log(req);
     if (req.params.userAge > 18) {
       return res.send(`Hello ${req.params.userName} ${req.params.userSurname}`);
     }
@@ -29,6 +30,7 @@ module.exports = {
   },
   getUsersSurnameByEmail: async (req, res) => {
     const { email } = req.body;
+
     try {
       const users = await User.find({ email }).select({
         surname: 1,
