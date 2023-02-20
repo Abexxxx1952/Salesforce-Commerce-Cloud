@@ -46,3 +46,16 @@ const start = async () => {
 };
 
 start();
+
+//listen unhandleRejection
+process.on("unhandledRejection", (reason, p) => {
+  //get slack notification about the error
+  console.error("Unhandled Rejection at:", p, "reason:", reason);
+  server.close();
+  process.exit(1);
+});
+process.on("uncaughtException", (e) => {
+  console.error("Uncaught exception at:", e);
+
+  server.close();
+  process.exit(1);
